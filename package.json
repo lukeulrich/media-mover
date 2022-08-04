@@ -1,0 +1,28 @@
+{
+  "name": "media-mover",
+  "version": "1.0.0",
+  "description": "Utility for safely organizing media files",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukeulrich/media-mover.git"
+  },
+  "keywords": [],
+  "author": "Luke Ulrich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukeulrich/media-mover/issues"
+  },
+  "homepage": "https://github.com/lukeulrich/media-mover#readme",
+  "dependencies": {
+    "typescript": "4.7.4",
+    "yargs": "17.5.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/node": "^18.6.3"
+  }
+}
