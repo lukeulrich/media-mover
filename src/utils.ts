@@ -2,6 +2,9 @@ import { Dirent } from 'fs';
 import { readdir } from 'fs/promises';
 import { resolve } from 'path';
 
+import { acceptableMediaTypes } from './constants';
+import { getMediaType, getMimeType } from './mime';
+
 export type FileInfo = {
   directory: string;
   dirEnt: Dirent;
@@ -42,4 +45,14 @@ export async function *getFiles(
       yield entryWithPath;
     }
   }
+};
+
+export const acceptMimeType = (mimeType: string): boolean => {
+  const mediaType = getMediaType(mimeType);
+  return acceptableMediaTypes.has(mediaType);
+};
+
+export const acceptFile = async (file: string): Promise<boolean> => {
+  const mimeType = await getMimeType(file);
+  return acceptMimeType(mimeType);
 };

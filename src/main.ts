@@ -9,7 +9,7 @@
  */
 import yargs from 'yargs';
 
-import { getFiles } from './utils';
+import { acceptFile, getFiles } from './utils';
 
 const parser = yargs(process.argv.slice(2))
   .scriptName('media-mover')
@@ -35,6 +35,8 @@ const parser = yargs(process.argv.slice(2))
 (async () => {
   const args = await parser.argv;
   for await (const file of getFiles(args.srcDir)) {
-    console.log(file);
+    if (!await acceptFile(file)) {
+      continue;
+    }
   }
 })();

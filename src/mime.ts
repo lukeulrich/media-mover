@@ -22,3 +22,7 @@ export const getMimeType = (file: string): Promise<string> => {
     });  
   });
 };
+
+export const getMediaType = (mimeType: string): string => {
+  return mimeType.split('/', 1)[0].toLowerCase();
+};
